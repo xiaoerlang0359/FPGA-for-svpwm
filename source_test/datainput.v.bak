@@ -1,0 +1,62 @@
+module datainput(
+ input en,
+ input rst_n,
+ input sys_clk,
+ input [15:0] I_U,
+ input [15:0] I_V,
+ input [15;0] I_W,
+ input [31:0] theta,
+ input [31:0] I_q_star
+ output [31:0] I_Uf,
+ output [31:0] I_Vf,
+ output [31:0] I_Wf,
+ output [31:0] thetaf,
+ output [31:0] I_q_starf,
+ output ack
+);
+
+reg [2:0] wait_cnt;
+
+assign ack = (wait_cnt==3'd7);
+
+always@(posedge sys_clk or negedge rst_n)
+begin
+	if (rst_n==1'b0)
+		wait_cnt<=4'd0;
+	else 
+	if (en)
+		wait_cnt<=wait_cnt+1;
+	else wait_cnt<=0;
+end
+
+int2float int2float1(
+	.dataa(I_U),
+	.result(I_Uf),
+	.clock(sys_clk)
+);
+
+int2float int2float2(
+	.dataa(I_V),
+	.result(I_Vf),
+	.clock(sys_clk)
+);
+
+int2float int2float3(
+	.dataa(I_W),
+	.result(I_Wf),
+	.clock(sys_clk)
+);
+
+int2float int2float4(
+	.dataa(theta),
+	.result(thetaf),
+	.clock(sys_clk)
+);
+
+int2float int2float5(
+	.dataa(I_q_star),
+	.result(I_q_starf),
+	.clock(sys_clk)
+);
+
+endmodule

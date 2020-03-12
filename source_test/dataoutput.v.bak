@@ -1,0 +1,27 @@
+module dataoutput(
+	input en,
+	input rst_n,
+	input sys_clk,
+	input [31:0] CP1f,
+	input [31:0] CP2f,
+	input [31:0] CP3f,
+	output [31:0] CP1,
+	output [31:0] CP2,
+	output [31:0] CP3,
+	output ack
+)
+
+reg [2:0] wait_cnt;
+
+assign ack = (wait_cnt==3'd7);
+
+always@(posedge sys_clk or negedge rst_n)
+begin
+	if (rst_n==1'b0)
+		wait_cnt<=4'd0;
+	else 
+	if (en)
+		wait_cnt<=wait_cnt+1;
+	else wait_cnt<=0;
+end
+
