@@ -1,0 +1,29 @@
+G04 ================== begin FILE IDENTIFICATION RECORD ==================*
+G04 Layout Name:  E:/Cadence/SPB_Data/control_board/control_board.brd*
+G04 Film Name:    OUTLINE*
+G04 File Format:  Gerber RS274X*
+G04 File Origin:  Cadence Allegro 16.6-2015-S098*
+G04 Origin Date:  Fri Dec 27 14:31:35 2019*
+G04 *
+G04 Layer:  BOARD GEOMETRY/OUTLINE*
+G04 *
+G04 Offset:    (0.00 0.00)*
+G04 Mirror:    No*
+G04 Mode:      Positive*
+G04 Rotation:  0*
+G04 FullContactRelief:  No*
+G04 UndefLineWidth:     6.00*
+G04 ================== end FILE IDENTIFICATION RECORD ====================*
+%FSLAX35Y35*MOIN*%
+%IR0*IPPOS*OFA0.00000B0.00000*MIA0B0*SFA1.00000B1.00000*%
+%ADD10C,.015*%
+G75*
+%LPD*%
+G75*
+G54D10*
+G01X-236220Y-196850D02*
+X236220D01*
+Y137795D01*
+X-236220D01*
+Y-196850D01*
+M02*
